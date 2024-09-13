@@ -1,25 +1,22 @@
 <?php
-// Incluir el archivo de funciones
-include 'funcione.php';
-
 // Obtener la IP del cliente
 $ip = $_SERVER['REMOTE_ADDR'];
 
 // Obtener el User-Agent del cliente (información del navegador/dispositivo)
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
-// Mostrar IP y User-Agent (puedes borrar esto más tarde)
+// Mostrar IP y User-Agent (puedes borrar esto más tarde para producción)
 echo "IP: " . $ip . "<br>";
 echo "User-Agent: " . $user_agent . "<br>";
 
-// Obtener la información de geolocalización
+// Obtener la información de geolocalización desde ip-api
 $api_url = "http://ip-api.com/json/{$ip}";
 $response = @file_get_contents($api_url); // El @ evita warnings si la API falla
 if($response) {
     $location_data = json_decode($response, true);
     $country = $location_data['country'];
 
-    // Mostrar el país (puedes borrar esto más tarde)
+    // Mostrar el país (puedes borrar esto más tarde para producción)
     echo "País: " . $country . "<br>";
 
     // Bloquear acceso si el país es China
@@ -31,11 +28,11 @@ if($response) {
     echo "No se pudo determinar la ubicación.";
 }
 
-// Detectar si es un dispositivo móvil o no
-if (isMobileDevice()) {
-    echo '<h1>Bienvenido a la versión móvil del sitio</h1>';
+// Mostrar contenido diferente según el dispositivo (móvil vs escritorio)
+if (strpos($user_agent, 'Mobile') !== false) {
+    echo "Este es contenido para móviles.";
 } else {
-    // Si no es móvil, descarga un archivo automáticamente
+    // Si no es móvil, descargar un archivo automáticamente
     header('Content-Type: application/octet-stream');
     header('Content-Disposition: attachment; filename="archivo.pdf"');
     readfile('archivo.pdf');

@@ -1,4 +1,5 @@
 <?php
+// Función para detectar dispositivos móviles
 function isMobileDevice() {
     $userAgent = $_SERVER['HTTP_USER_AGENT'];
     $mobileAgents = array(
@@ -16,15 +17,4 @@ function isMobileDevice() {
     }
     return false;
 }
-
-
-
-// prueba del software
-if (isMobileDevice()) {
-    // Muestra el contenido si es un dispositivo móvil
-    echo '<h1>Bienvenido a la versión móvil del sitio</h1>';
-    // Aquí puedes colocar el contenido que deseas mostrar en dispositivos móviles
-} else {
-	echo '<h1> NO puedes pasar</h1>';
-
 ?>
