@@ -8,6 +8,7 @@ $user_agent = $_SERVER['HTTP_USER_AGENT'];
 // Mostrar IP y User-Agent (puedes borrar esto más tarde)
 echo "IP: " . $ip . "<br>";
 echo "User-Agent: " . $user_agent . "<br>";
+
 // Obtener la información de geolocalización
 $api_url = "http://ip-api.com/json/{$ip}";
 $response = file_get_contents($api_url);
