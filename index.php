@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo de funciones
-include 'funcione.php';
+include 'funcion.php';
 
 // Obtener la IP del cliente
 $ip = $_SERVER['REMOTE_ADDR'];
@@ -8,18 +8,18 @@ $ip = $_SERVER['REMOTE_ADDR'];
 // Obtener el User-Agent del cliente (información del navegador/dispositivo)
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
-// Mostrar IP y User-Agent (puedes borrar esto más tarde)
+// Mostrar IP y User-Agent (para depuración)
 echo "IP: " . $ip . "<br>";
 echo "User-Agent: " . $user_agent . "<br>";
 
 // Obtener la información de geolocalización
 $api_url = "http://ip-api.com/json/{$ip}";
-$response = @file_get_contents($api_url); // El @ evita warnings si la API falla
+$response = @file_get_contents($api_url);
 if($response) {
     $location_data = json_decode($response, true);
     $country = $location_data['country'];
 
-    // Mostrar el país (puedes borrar esto más tarde)
+    // Mostrar el país (para depuración)
     echo "País: " . $country . "<br>";
 
     // Bloquear acceso si el país es China
@@ -27,7 +27,7 @@ if($response) {
         exit("Acceso denegado.");
     }
 } else {
-    // Si no se puede obtener información de la API, mostrar un mensaje
+    // Mensaje si la API de geolocalización falla
     echo "No se pudo determinar la ubicación.";
 }
 
@@ -50,6 +50,9 @@ if (strpos($user_agent, 'Googlebot') !== false) {
 }
 
 // Crear un registro de la petición (fecha, IP y User-Agent)
+$logFile = __DIR__ . '/log.txt'; // Usa la ruta absoluta al archivo de registro
 $log = date('Y-m-d H:i:s') . " - IP: $ip - User-Agent: $user_agent\n";
-file_put_contents('log.txt', $log, FILE_APPEND);
+if (file_put_contents($logFile, $log, FILE_APPEND) === false) {
+    echo "Error al escribir en el archivo de registro.";
+}
 ?>

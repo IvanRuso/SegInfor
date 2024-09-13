@@ -1,5 +1,4 @@
 <?php
-// Función para detectar dispositivos móviles
 function isMobileDevice() {
     $userAgent = $_SERVER['HTTP_USER_AGENT'];
     $mobileAgents = array(
@@ -8,6 +7,9 @@ function isMobileDevice() {
 
     // Convertir el user agent a minúsculas para comparación
     $userAgent = strtolower($userAgent);
+
+    // Depuración: Mostrar el user agent
+    echo "User-Agent en isMobileDevice: " . $userAgent . "<br>";
 
     // Buscar en el user agent las cadenas que indican un dispositivo móvil
     foreach ($mobileAgents as $agent) {
