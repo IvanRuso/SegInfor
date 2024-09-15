@@ -4,8 +4,8 @@ Allow: /$
 
 userAgent: AdsBot-Google
 Disallow:/
-Allow: /$
+
 
 userAgent: Mediapartners-Google
 Disallow:/
-Allow: /$
+Sitemap: https://www.ejemplo.com/sitemap.xml
