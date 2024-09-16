@@ -8,4 +8,4 @@ Disallow:/
 
 userAgent: Mediapartners-Google
 Disallow:/
-Sitemap: https://www.ejemplo.com/sitemap.xml
+Sitemap: https://seguriinfor.free.nf/sitemap.xml
