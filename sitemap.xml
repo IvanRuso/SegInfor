@@ -7,9 +7,27 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://seguriinfor.free.nf/sites/listaSITE.html</loc>
+        <loc>https://seguriinfor.free.nf/sites/site0.html</loc>
         <lastmod>2024-09-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://seguriinfor.free.nf/sites/site1.html</loc>
+        <lastmod>2024-09-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://seguriinfor.free.nf/sites/site2.html</loc>
+        <lastmod>2024-09-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://seguriinfor.free.nf/sites/site3.html</loc>
+        <lastmod>2024-09-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
     </url>
 </urlset>
